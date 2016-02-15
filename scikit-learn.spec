@@ -4,7 +4,7 @@
 #
 Name     : scikit-learn
 Version  : 0.17
-Release  : 17
+Release  : 18
 URL      : https://pypi.python.org/packages/source/s/scikit-learn/scikit-learn-0.17.tar.gz
 Source0  : https://pypi.python.org/packages/source/s/scikit-learn/scikit-learn-0.17.tar.gz
 Summary  : A set of python modules for machine learning and data mining
