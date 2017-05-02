@@ -4,7 +4,7 @@
 #
 Name     : scikit-learn
 Version  : 0.18.1
-Release  : 35
+Release  : 36
 URL      : http://github.com/scikit-learn/scikit-learn/archive/0.18.1.tar.gz
 Source0  : http://github.com/scikit-learn/scikit-learn/archive/0.18.1.tar.gz
 Summary  : No detailed summary available
