@@ -1,0 +1,2 @@
+# This file contains recursive sources that require this package
+scikit-image-0:0.13.0-15.src
