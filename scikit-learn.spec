@@ -4,13 +4,14 @@
 #
 Name     : scikit-learn
 Version  : 0.19.0
-Release  : 44
+Release  : 45
 URL      : https://github.com/scikit-learn/scikit-learn/archive/0.19.0.tar.gz
 Source0  : https://github.com/scikit-learn/scikit-learn/archive/0.19.0.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause BSD-3-Clause-Clear
 Requires: scikit-learn-legacypython
+Requires: scikit-learn-python3
 Requires: scikit-learn-python
 Requires: nose
 Requires: numpy
@@ -32,6 +33,7 @@ every once in a while.
 %package legacypython
 Summary: legacypython components for the scikit-learn package.
 Group: Default
+Requires: python-core
 
 %description legacypython
 legacypython components for the scikit-learn package.
@@ -41,9 +43,19 @@ legacypython components for the scikit-learn package.
 Summary: python components for the scikit-learn package.
 Group: Default
 Requires: scikit-learn-legacypython
+Requires: scikit-learn-python3
 
 %description python
 python components for the scikit-learn package.
+
+
+%package python3
+Summary: python3 components for the scikit-learn package.
+Group: Default
+Requires: python3-core
+
+%description python3
+python3 components for the scikit-learn package.
 
 
 %prep
@@ -54,19 +66,19 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1505676960
+export SOURCE_DATE_EPOCH=1507174584
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-common -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
-export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-common -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
-export FFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-common -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
-export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-common -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
+export CFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
+export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
+export FFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
+export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1505676960
+export SOURCE_DATE_EPOCH=1507174584
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
@@ -82,5 +94,8 @@ echo ----[ mark ]----
 /usr/lib/python2*/*
 
 %files python
+%defattr(-,root,root,-)
+
+%files python3
 %defattr(-,root,root,-)
 /usr/lib/python3*/*
