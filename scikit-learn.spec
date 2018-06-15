@@ -22,7 +22,7 @@ BuildRequires : numpy
 BuildRequires : numpy-legacypython
 BuildRequires : pbr
 BuildRequires : pip
-BuildRequires : python-dev
+
 BuildRequires : python3-dev
 BuildRequires : scipy
 BuildRequires : scipy-legacypython
