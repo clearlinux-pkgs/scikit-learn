@@ -4,7 +4,7 @@
 #
 Name     : scikit-learn
 Version  : 0.19.1
-Release  : 55
+Release  : 56
 URL      : https://github.com/scikit-learn/scikit-learn/archive/0.19.1.tar.gz
 Source0  : https://github.com/scikit-learn/scikit-learn/archive/0.19.1.tar.gz
 Summary  : No detailed summary available
@@ -22,10 +22,8 @@ BuildRequires : numpy
 BuildRequires : numpy-legacypython
 BuildRequires : pbr
 BuildRequires : pip
-
 BuildRequires : python3-dev
 BuildRequires : scipy
-BuildRequires : scipy-legacypython
 BuildRequires : setuptools
 Patch1: build.patch
 
@@ -68,7 +66,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1528991489
+export SOURCE_DATE_EPOCH=1529161079
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
