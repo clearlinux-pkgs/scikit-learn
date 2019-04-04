@@ -4,7 +4,7 @@
 #
 Name     : scikit-learn
 Version  : 0.20.3
-Release  : 70
+Release  : 71
 URL      : https://github.com/scikit-learn/scikit-learn/archive/0.20.3.tar.gz
 Source0  : https://github.com/scikit-learn/scikit-learn/archive/0.20.3.tar.gz
 Summary  : No detailed summary available
@@ -15,10 +15,10 @@ Requires: scikit-learn-python = %{version}-%{release}
 Requires: scikit-learn-python3 = %{version}-%{release}
 Requires: numpy
 Requires: scipy
+Requires: wheel
 BuildRequires : Cython
 BuildRequires : buildreq-distutils3
 BuildRequires : numpy
-BuildRequires : numpy-legacypython
 BuildRequires : scipy
 
 %description
@@ -59,7 +59,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1551481975
+export SOURCE_DATE_EPOCH=1554343964
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -71,6 +71,7 @@ export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
 %install
+export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/scikit-learn
 cp COPYING %{buildroot}/usr/share/package-licenses/scikit-learn/COPYING
