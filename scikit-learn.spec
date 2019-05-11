@@ -4,7 +4,7 @@
 #
 Name     : scikit-learn
 Version  : 0.21.0
-Release  : 76
+Release  : 77
 URL      : https://github.com/scikit-learn/scikit-learn/archive/0.21.0/scikit-learn-0.21.0.tar.gz
 Source0  : https://github.com/scikit-learn/scikit-learn/archive/0.21.0/scikit-learn-0.21.0.tar.gz
 Summary  : No detailed summary available
@@ -13,9 +13,12 @@ License  : BSD-3-Clause
 Requires: scikit-learn-license = %{version}-%{release}
 Requires: scikit-learn-python = %{version}-%{release}
 Requires: scikit-learn-python3 = %{version}-%{release}
+Requires: Cython
+Requires: Pillow
 Requires: joblib
 Requires: numpy
 Requires: scipy
+Requires: wheel
 BuildRequires : Cython
 BuildRequires : Pillow
 BuildRequires : buildreq-distutils3
@@ -62,7 +65,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1557547291
+export SOURCE_DATE_EPOCH=1557548245
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
