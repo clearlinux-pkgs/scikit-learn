@@ -1,2 +1,8 @@
 # This file contains recursive sources that require this package
+ceph
+deprecated-python-dldt
+dldt
+dldt-model-optimizer
+nltk
+python-dldt
 scikit-image
