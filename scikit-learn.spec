@@ -4,7 +4,7 @@
 #
 Name     : scikit-learn
 Version  : 0.22.1
-Release  : 88
+Release  : 89
 URL      : https://github.com/scikit-learn/scikit-learn/archive/0.22.1/scikit-learn-0.22.1.tar.gz
 Source0  : https://github.com/scikit-learn/scikit-learn/archive/0.22.1/scikit-learn-0.22.1.tar.gz
 Summary  : No detailed summary available
@@ -27,11 +27,11 @@ BuildRequires : pandas
 BuildRequires : scikit-image
 BuildRequires : scikit-learn
 BuildRequires : scipy
+Patch1: 0001-avx512-for-libsvm-kernel-dot-function.patch
 
 %description
-|Azure|_ |Travis|_ |Codecov|_ |CircleCI|_ |PythonVersion|_ |PyPi|_ |DOI|_
-.. |Azure| image:: https://dev.azure.com/scikit-learn/scikit-learn/_apis/build/status/scikit-learn.scikit-learn?branchName=master
-.. _Azure: https://dev.azure.com/scikit-learn/scikit-learn/_build/latest?definitionId=1&branchName=master
+This directory contains bundled external dependencies that are updated
+every once in a while.
 
 %package license
 Summary: license components for the scikit-learn package.
@@ -62,14 +62,14 @@ python3 components for the scikit-learn package.
 %prep
 %setup -q -n scikit-learn-0.22.1
 cd %{_builddir}/scikit-learn-0.22.1
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1578333440
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1578966858
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
