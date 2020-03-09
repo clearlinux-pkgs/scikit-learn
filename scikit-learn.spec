@@ -4,7 +4,7 @@
 #
 Name     : scikit-learn
 Version  : 0.22.1
-Release  : 90
+Release  : 91
 URL      : https://github.com/scikit-learn/scikit-learn/archive/0.22.1/scikit-learn-0.22.1.tar.gz
 Source0  : https://github.com/scikit-learn/scikit-learn/archive/0.22.1/scikit-learn-0.22.1.tar.gz
 Summary  : A set of python modules for machine learning and data mining
@@ -30,9 +30,8 @@ BuildRequires : scipy
 Patch1: 0001-avx512-for-libsvm-kernel-dot-function.patch
 
 %description
-|Azure|_ |Travis|_ |Codecov|_ |CircleCI|_ |PythonVersion|_ |PyPi|_ |DOI|_
-.. |Azure| image:: https://dev.azure.com/scikit-learn/scikit-learn/_apis/build/status/scikit-learn.scikit-learn?branchName=master
-.. _Azure: https://dev.azure.com/scikit-learn/scikit-learn/_build/latest?definitionId=1&branchName=master
+This directory contains bundled external dependencies that are updated
+every once in a while.
 
 %package license
 Summary: license components for the scikit-learn package.
@@ -55,7 +54,10 @@ python components for the scikit-learn package.
 Summary: python3 components for the scikit-learn package.
 Group: Default
 Requires: python3-core
-Provides: pypi(scikit-learn)
+Provides: pypi(scikit_learn)
+Requires: pypi(joblib)
+Requires: pypi(numpy)
+Requires: pypi(scipy)
 
 %description python3
 python3 components for the scikit-learn package.
@@ -71,8 +73,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583225546
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1583716200
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
