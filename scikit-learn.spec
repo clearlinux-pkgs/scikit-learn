@@ -4,7 +4,7 @@
 #
 Name     : scikit-learn
 Version  : 0.22.2
-Release  : 92
+Release  : 93
 URL      : https://github.com/scikit-learn/scikit-learn/archive/0.22.2/scikit-learn-0.22.2.tar.gz
 Source0  : https://github.com/scikit-learn/scikit-learn/archive/0.22.2/scikit-learn-0.22.2.tar.gz
 Summary  : A set of python modules for machine learning and data mining
@@ -24,6 +24,7 @@ BuildRequires : joblib
 BuildRequires : matplotlib
 BuildRequires : numpy
 BuildRequires : pandas
+BuildRequires : pytest
 BuildRequires : scikit-image
 BuildRequires : scikit-learn
 BuildRequires : scipy
@@ -74,7 +75,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583860304
+export SOURCE_DATE_EPOCH=1585156676
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
@@ -87,6 +88,11 @@ export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -f
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
+%check
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
+pytest sklearn || :
 %install
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
