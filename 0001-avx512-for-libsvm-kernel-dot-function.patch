@@ -1,4 +1,4 @@
-From ec435a2c34f89f4b957267b7c5051c1d2c63bbd3 Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Shuhua Fan <shuhua.fan@intel.com>
 Date: Mon, 13 Jan 2020 17:09:24 +0800
 Subject: [PATCH] avx512 for libsvm kernel dot function
@@ -8,19 +8,19 @@ Subject: [PATCH] avx512 for libsvm kernel dot function
  1 file changed, 102 insertions(+)
 
 diff --git a/sklearn/svm/src/libsvm/svm.cpp b/sklearn/svm/src/libsvm/svm.cpp
-index 9321340..e8d9ccf 100644
+index a5f735d..f0ae67f 100644
 --- a/sklearn/svm/src/libsvm/svm.cpp
 +++ b/sklearn/svm/src/libsvm/svm.cpp
-@@ -58,6 +58,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- #include <string.h>
- #include <stdarg.h>
+@@ -68,6 +68,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ #include <random>
  #include "svm.h"
+ #include "../newrand/newrand.h"
 +#include "immintrin.h"
 +#include "stdint.h"
  
  #ifndef _LIBSVM_CPP
  typedef float Qfloat;
-@@ -394,8 +396,40 @@ double Kernel::dot(const PREFIX(node) *px, const PREFIX(node) *py)
+@@ -404,8 +406,40 @@ double Kernel::dot(const PREFIX(node) *px, const PREFIX(node) *py)
  	double sum = 0;
  
  	int dim = min(px->dim, py->dim);
@@ -54,14 +54,14 @@ index 9321340..e8d9ccf 100644
 +	for (int i = (n_i<<3) + alignment; i < dim; i++) {
 +		sum += (px->values)[i] * (py->values)[i];
 +	}
-+#else	
++#else
  	for (int i = 0; i < dim; i++)
  		sum += (px->values)[i] * (py->values)[i];
-+#endif	
++#endif
  	return sum;
  }
  
-@@ -404,8 +438,40 @@ double Kernel::dot(const PREFIX(node) &px, const PREFIX(node) &py)
+@@ -414,8 +448,40 @@ double Kernel::dot(const PREFIX(node) &px, const PREFIX(node) &py)
  	double sum = 0;
  
  	int dim = min(px.dim, py.dim);
@@ -95,14 +95,14 @@ index 9321340..e8d9ccf 100644
 +	for (int i = (n_i<<3) + alignment; i < dim; i++) {
 +		sum += px.values[i] * py.values[i];
 +	}
-+#else	
++#else
  	for (int i = 0; i < dim; i++)
  		sum += px.values[i] * py.values[i];
 +#endif
  	return sum;
  }
  #else
-@@ -446,11 +512,47 @@ double Kernel::k_function(const PREFIX(node) *x, const PREFIX(node) *y,
+@@ -456,11 +522,47 @@ double Kernel::k_function(const PREFIX(node) *x, const PREFIX(node) *y,
  			double sum = 0;
  #ifdef _DENSE_REP
  			int dim = min(x->dim, y->dim), i;
@@ -150,6 +150,3 @@ index 9321340..e8d9ccf 100644
  			for (; i < x->dim; i++)
  				sum += x->values[i] * x->values[i];
  			for (; i < y->dim; i++)
--- 
-2.24.1
-
