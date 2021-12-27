@@ -1,2 +1,7 @@
-1.0.1
+1.0.2
+pypi(matplotlib)
+pypi(pandas)
+pypi(scikit_image)
+pypi(scikit_learn)
+pypi(sphinx_gallery)
 pytest
