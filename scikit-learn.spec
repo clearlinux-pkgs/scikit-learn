@@ -4,7 +4,7 @@
 #
 Name     : scikit-learn
 Version  : 1.0.2
-Release  : 116
+Release  : 117
 URL      : https://github.com/scikit-learn/scikit-learn/archive/1.0.2/scikit-learn-1.0.2.tar.gz
 Source0  : https://github.com/scikit-learn/scikit-learn/archive/1.0.2/scikit-learn-1.0.2.tar.gz
 Summary  : A set of python modules for machine learning and data mining
@@ -59,13 +59,8 @@ Group: Default
 Requires: python3-core
 Provides: pypi(scikit_learn)
 Requires: pypi(joblib)
-Requires: pypi(matplotlib)
 Requires: pypi(numpy)
-Requires: pypi(pandas)
-Requires: pypi(scikit_image)
-Requires: pypi(scikit_learn)
 Requires: pypi(scipy)
-Requires: pypi(sphinx_gallery)
 Requires: pypi(threadpoolctl)
 
 %description python3
@@ -81,7 +76,8 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1640625478
+export SOURCE_DATE_EPOCH=1640653584
+unset LD_AS_NEEDED
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
