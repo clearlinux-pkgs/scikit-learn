@@ -3,5 +3,6 @@ pypi(matplotlib)
 pypi(pandas)
 pypi(scikit_image)
 pypi(scikit_learn)
+pypi(sklearn.__check_build._check_build)
 pypi(sphinx_gallery)
 pytest

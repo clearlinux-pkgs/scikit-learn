@@ -4,7 +4,7 @@
 #
 Name     : scikit-learn
 Version  : 1.0.2
-Release  : 119
+Release  : 120
 URL      : https://github.com/scikit-learn/scikit-learn/archive/1.0.2/scikit-learn-1.0.2.tar.gz
 Source0  : https://github.com/scikit-learn/scikit-learn/archive/1.0.2/scikit-learn-1.0.2.tar.gz
 Summary  : A set of python modules for machine learning and data mining
@@ -14,7 +14,6 @@ Requires: scikit-learn-license = %{version}-%{release}
 Requires: scikit-learn-python = %{version}-%{release}
 Requires: scikit-learn-python3 = %{version}-%{release}
 Requires: joblib
-BuildRequires : Cython
 BuildRequires : buildreq-distutils3
 BuildRequires : numpy
 BuildRequires : pypi(cython)
@@ -28,6 +27,7 @@ BuildRequires : pypi(scipy)
 BuildRequires : pypi(setuptools)
 BuildRequires : pypi(sphinx_gallery)
 BuildRequires : pypi(wheel)
+BuildRequires : pypi-cython
 BuildRequires : pytest
 BuildRequires : scikit-learn
 BuildRequires : scipy
@@ -76,7 +76,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1640653584
+export SOURCE_DATE_EPOCH=1642366225
 unset LD_AS_NEEDED
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
