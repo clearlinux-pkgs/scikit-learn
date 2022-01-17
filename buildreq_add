@@ -1,6 +1,6 @@
 # This file contains additional build requirements that did not get
 # picked up automatically. One name per line, no whitespace.
-numpy
-scipy
+pypi(numpy)
+pypi(scipy)
 pypi-cython
-scikit-learn
+pypi(scikit_learn)
