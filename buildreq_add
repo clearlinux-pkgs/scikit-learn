@@ -4,3 +4,4 @@ pypi(numpy)
 pypi(scipy)
 pypi-cython
 pypi(scikit_learn)
+pypi-pytest
