@@ -5,3 +5,4 @@ sklearn.__check_build._check_build-python
 pypi(sklearn.__check_build._check_build)
 pypi(cython.compiler.main)
 pypi(oldest_supported_numpy)
+pypi(sklearn.tests.random_seed)
