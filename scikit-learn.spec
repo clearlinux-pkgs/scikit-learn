@@ -4,7 +4,7 @@
 #
 Name     : scikit-learn
 Version  : 1.1.1
-Release  : 127
+Release  : 128
 URL      : https://github.com/scikit-learn/scikit-learn/archive/1.1.1/scikit-learn-1.1.1.tar.gz
 Source0  : https://github.com/scikit-learn/scikit-learn/archive/1.1.1/scikit-learn-1.1.1.tar.gz
 Summary  : A set of python modules for machine learning and data mining
