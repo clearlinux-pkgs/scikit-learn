@@ -4,7 +4,7 @@
 #
 Name     : scikit-learn
 Version  : 1.1.1
-Release  : 128
+Release  : 129
 URL      : https://github.com/scikit-learn/scikit-learn/archive/1.1.1/scikit-learn-1.1.1.tar.gz
 Source0  : https://github.com/scikit-learn/scikit-learn/archive/1.1.1/scikit-learn-1.1.1.tar.gz
 Summary  : A set of python modules for machine learning and data mining
@@ -100,7 +100,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1653009741
+export SOURCE_DATE_EPOCH=1656425773
 unset LD_AS_NEEDED
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
@@ -145,7 +145,7 @@ export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3 "
 export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3 "
 python3 -tt setup.py build install --root=%{buildroot}-v3
 popd
-/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
