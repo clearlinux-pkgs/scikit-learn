@@ -4,7 +4,7 @@
 #
 Name     : scikit-learn
 Version  : 1.1.2
-Release  : 136
+Release  : 137
 URL      : https://github.com/scikit-learn/scikit-learn/archive/1.1.2/scikit-learn-1.1.2.tar.gz
 Source0  : https://github.com/scikit-learn/scikit-learn/archive/1.1.2/scikit-learn-1.1.2.tar.gz
 Summary  : A set of python modules for machine learning and data mining
@@ -100,7 +100,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1659978291
+export SOURCE_DATE_EPOCH=1666721997
 unset LD_AS_NEEDED
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
@@ -133,8 +133,8 @@ pytest sklearn || :
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/scikit-learn
-cp %{_builddir}/scikit-learn-%{version}/COPYING %{buildroot}/usr/share/package-licenses/scikit-learn/2a3ba0cd0df7c92d6322141b1f9a0b153b30e391
-cp %{_builddir}/scikit-learn-%{version}/sklearn/svm/src/liblinear/COPYRIGHT %{buildroot}/usr/share/package-licenses/scikit-learn/98a0f7cd8d323be9a1aea7f957868b11361c4f51
+cp %{_builddir}/scikit-learn-%{version}/COPYING %{buildroot}/usr/share/package-licenses/scikit-learn/2a3ba0cd0df7c92d6322141b1f9a0b153b30e391 || :
+cp %{_builddir}/scikit-learn-%{version}/sklearn/svm/src/liblinear/COPYRIGHT %{buildroot}/usr/share/package-licenses/scikit-learn/98a0f7cd8d323be9a1aea7f957868b11361c4f51 || :
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
