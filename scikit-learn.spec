@@ -4,7 +4,7 @@
 #
 Name     : scikit-learn
 Version  : 1.1.2
-Release  : 137
+Release  : 138
 URL      : https://github.com/scikit-learn/scikit-learn/archive/1.1.2/scikit-learn-1.1.2.tar.gz
 Source0  : https://github.com/scikit-learn/scikit-learn/archive/1.1.2/scikit-learn-1.1.2.tar.gz
 Summary  : A set of python modules for machine learning and data mining
@@ -100,7 +100,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1666721997
+export SOURCE_DATE_EPOCH=1666727515
 unset LD_AS_NEEDED
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
